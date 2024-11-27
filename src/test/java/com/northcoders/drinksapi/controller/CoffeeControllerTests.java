@@ -30,26 +30,26 @@ public class CoffeeControllerTests {
     @Test
     public void testGetCoffee_emptyParam() throws Exception {
 
-        int expectedId = 3;
+        int expectedId = 1;
         String expectedValue = "latte";
 
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/coffee"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedValue));
-                //.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(expectedId));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedValue))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(expectedId));
     }
 
     @Test
     public void testGetCoffee_userInput() throws Exception {
 
-        int expectedId = 1;
+        int expectedId = 2;
         String expectedValue = "cappuccino";
 
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/coffee").param("name","cappuccino"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedValue));
-                //.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(expectedId));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedValue))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(expectedId));
     }
 }
