@@ -1,4 +1,20 @@
 package com.northcoders.drinksapi.model;
 
-public record Coffee() {
+public class Coffee{
+
+    long id;
+    String name;
+
+    public Coffee(long id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
